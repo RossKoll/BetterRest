@@ -20,27 +20,21 @@ struct ContentView: View {
     var body: some View {
         NavigationView{
             Form{
-                VStack(alignment: .leading, spacing: 0){
-                    Text("When do you want to wake up")
-                        .font(.headline)
+                Section(header: Text("When do you want to wake up")){
                     
                     DatePicker("Please enter a time", selection: $wakeUp, displayedComponents:.hourAndMinute)
                         .labelsHidden()
                         .datePickerStyle(WheelDatePickerStyle())
                 }
                 
-                VStack(alignment: .leading, spacing: 0){
-                    Text("Desire amount of sleep")
-                        .font(.headline)
+                Section(header: Text("Desire amount of sleep")){
                     
                     Stepper(value: $sleepAomunt, in: 4...12, step: 0.25){
                         Text("  \(sleepAomunt, specifier: "%g") hours")
                     }
                 }
                 
-                VStack(alignment: .leading, spacing: 0){
-                    Text("Daily coffe intake")
-                        .font(.headline)
+                Section(header: Text("Daily coffe intake")){
                     
                     Stepper(value: $coffeAmount, in: 1...20){
                         if coffeAmount == 1 {
